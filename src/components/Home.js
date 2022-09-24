@@ -18,9 +18,11 @@ function Home() {
     const query=text
     setErr('')
     if(choice=='people'){
+//       setText('')
       axios.get(`https://api.tvmaze.com/search/people?q=${query}`)
       .then(res => {
         if(res.data.length===0){
+          setData([])
           setErr('No Data Found')
         }
         else{
