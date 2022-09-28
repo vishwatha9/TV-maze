@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { debounce } from "lodash"
 import './Home.css'
 import Cards from './Cards'
 
@@ -64,6 +65,15 @@ function Home() {
     setPlace('eg:friends...')
   }
   }
+  
+  const handleChange = debounce((val) => {
+  if(val === ''){
+  setErr('Enter the Text')
+  }
+  setText(val)
+  }, 1000)
+  
+  
   return (
     <div>
       <div className={'block2'}>
@@ -90,7 +100,7 @@ function Home() {
         className={'inpBox'}
         type='text' 
         placeholder={place} 
-        onChange={(e) => setText(e.target.value)}/>
+        onChange=({e) => handleChange(e.target.value)}/>
       <p className={'err'}>{err}</p>
       </div></div>
       <div className={'cardFlex'}>
