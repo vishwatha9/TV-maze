@@ -100,7 +100,7 @@ function Home() {
         className={'inpBox'}
         type='text' 
         placeholder={place} 
-        onChange=({e) => handleChange(e.target.value)}/>
+        onChange={(e) => handleChange(e.target.value)}/>
       <p className={'err'}>{err}</p>
       </div></div>
       <div className={'cardFlex'}>
